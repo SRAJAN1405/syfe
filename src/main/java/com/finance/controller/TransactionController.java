@@ -26,7 +26,7 @@ public class TransactionController {
     @Autowired
     private AuthService authService;
 
-    @PostMapping
+@PostMapping(consumes = org.springframework.http.MediaType.ALL_VALUE)
     public ResponseEntity<?> createTransaction(@Valid @RequestBody TransactionDTO.CreateRequest request, HttpSession session) {
         try {
             Long userId = authService.getCurrentUserId(session);
@@ -60,7 +60,7 @@ public class TransactionController {
         }
     }
 
-    @PutMapping("/{id}")
+   @PutMapping(value = "/{id}", consumes = org.springframework.http.MediaType.ALL_VALUE)
     public ResponseEntity<?> updateTransaction(@PathVariable Long id,
                                                 @Valid @RequestBody TransactionDTO.UpdateRequest request,
                                                 HttpSession session) {

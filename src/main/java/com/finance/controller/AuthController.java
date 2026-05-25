@@ -17,7 +17,7 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
-    @PostMapping("/register")
+@PostMapping(value = "/register", consumes = org.springframework.http.MediaType.ALL_VALUE)
     public ResponseEntity<AuthDTO.AuthResponse> register(@Valid @RequestBody AuthDTO.RegisterRequest request) {
         try {
             Long userId = authService.register(request);

@@ -24,7 +24,7 @@ public class SavingsGoalController {
     @Autowired
     private AuthService authService;
 
-    @PostMapping
+    @PostMapping(consumes = org.springframework.http.MediaType.ALL_VALUE)
     public ResponseEntity<?> createGoal(@Valid @RequestBody SavingsGoalDTO.CreateRequest request, HttpSession session) {
         try {
             Long userId = authService.getCurrentUserId(session);
@@ -67,7 +67,7 @@ public class SavingsGoalController {
         }
     }
 
-    @PutMapping("/{id}")
+  @PutMapping(value = "/{id}", consumes = org.springframework.http.MediaType.ALL_VALUE)
     public ResponseEntity<?> updateGoal(@PathVariable Long id,
                                          @Valid @RequestBody SavingsGoalDTO.UpdateRequest request,
                                          HttpSession session) {

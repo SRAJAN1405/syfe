@@ -39,7 +39,7 @@ public class CategoryController {
         }
     }
 
-    @PostMapping
+ @PostMapping(consumes = org.springframework.http.MediaType.ALL_VALUE)
     public ResponseEntity<?> createCategory(@Valid @RequestBody CategoryDTO.CreateRequest request, HttpSession session) {
         try {
             Long userId = authService.getCurrentUserId(session);
