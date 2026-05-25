@@ -40,7 +40,7 @@ cd syfe
 mvn clean spring-boot:run
 ```
 
-The application starts on **http://localhost:8080**.
+The application starts on **https://syfe-2.onrender.com**.
 
 ### Run with Docker
 
